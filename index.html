@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>京都・中小事業者向け｜補助金AI監視＆軽量業務自動化（0円診断）</title>
+<style>
+  :root {
+    --navy: #1B365D;
+    --navy-dark: #10243E;
+    --bg: #F8FAFC;
+    --card: #FFFFFF;
+    --border: #DCE4EE;
+    --text: #1E293B;
+    --muted: #475569;
+    --accent: #0F766E;
+    --accent-bg: #ECFDF5;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+  }
+  .hero {
+    background: linear-gradient(135deg, var(--navy-dark), var(--navy));
+    color: #fff;
+    padding: 44px 20px;
+    text-align: center;
+  }
+  .hero h1 { margin: 0 auto 12px; max-width: 780px; font-size: 26px; line-height: 1.35; }
+  .hero p { margin: 0 auto; max-width: 680px; font-size: 14.5px; opacity: 0.9; }
+  .container { max-width: 960px; margin: 28px auto; padding: 0 16px 56px; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px; }
+  @media (max-width: 760px) { .grid-2 { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  }
+  h2 { margin: 0 0 14px; font-size: 18px; color: var(--navy); border-bottom: 2px solid #EEF3FC; padding-bottom: 8px; }
+  .pill {
+    display: inline-block;
+    background: var(--accent-bg);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-bottom: 8px;
+  }
+  label { display: block; font-size: 13px; font-weight: 600; margin: 12px 0 5px; }
+  select, input[type="number"], input[type="text"] {
+    width: 100%;
+    padding: 9px 10px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  .checks label { font-weight: 400; display: flex; align-items: center; gap: 8px; margin: 6px 0; cursor: pointer; }
+  button {
+    background: var(--navy);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 11px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 14px;
+    width: 100%;
+  }
+  button:hover { background: #264777; }
+  .result-box {
+    background: #EEF3FC;
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 12px;
+  }
+  .result-box h3 { margin: 0 0 8px; font-size: 15px; color: var(--navy); }
+  .price-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px dashed #CBD5E1; font-size: 14px; }
+  pre {
+    background: #F8FAFC;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px;
+    font-size: 12.5px;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .footer { text-align: center; font-size: 12px; color: var(--muted); margin-top: 32px; }
+</style>
+</head>
+<body>
+<section class="hero">
+  <span class="pill">京都・関西圏の中小企業・宿泊・飲食事業者向け</span>
+  <h1>補助金・公的情報の自動監視＆軽量AI業務効率化</h1>
+  <p>大手RPA（導入30〜50万円）や制作会社（60万円〜）は不要。現場実務とPython/Google Workspaceを組み合わせ、小規模事業者が本当に使える仕組みだけを低コストで構築します。</p>
+</section>
+
+<main class="container">
+  <div class="grid-2">
+    <section class="card">
+      <h2>30秒｜補助金＆業務削減シミュレーター</h2>
+      <label>事業区分</label>
+      <select id="bizCat">
+        <option value="宿泊">宿泊施設（旅館・ホテル・町家宿）</option>
+        <option value="飲食">飲食店・カフェ・居酒屋</option>
+        <option value="その他中小">その他 中小企業・個人事業主</option>
+      </select>
+
+      <label>現在の手作業・課題（複数選択可）</label>
+      <div class="checks">
+        <label><input type="checkbox" class="pain" value="補助金や自治体公募を毎回手動で探している" checked /> 補助金・公募情報の手動チェック</label>
+        <label><input type="checkbox" class="pain" value="外国語口コミ・多言語案内が追いついていない" checked /> 外国語口コミ返信・多言語案内</label>
+        <label><input type="checkbox" class="pain" value="在庫・発注・日報を紙や手入力で転記している" /> 在庫・発注・売上集計の手作業転記</label>
+        <label><input type="checkbox" class="pain" value="競合価格やWeb新着を手動で巡回確認している" /> Web情報・価格・新着の手動巡回</label>
+      </div>
+
+      <label>週あたりの手作業時間（目安・時間）</label>
+      <input type="number" id="hoursWeek" value="5" min="1" max="60" />
+
+      <button onclick="runDiag()">診断結果と該当補助金を表示</button>
+    </section>
+
+    <section class="card">
+      <h2>診断結果・おすすめプラン</h2>
+      <div class="result-box" id="diagResult">
+        <h3>シミュレーション結果</h3>
+        <div id="diagSummary">左側の項目を選んで「診断結果と該当補助金を表示」を押してください。</div>
+      </div>
+      <label>そのまま問い合わせに使える診断メモ</label>
+      <pre id="diagCopy"></pre>
+      <button onclick="copyDiag()" style="background:#0F766E;">診断メモをコピーする</button>
+    </section>
+  </div>
+
+  <section class="card">
+    <h2>提供メニュー・料金目安（税込別記・明朗会計）</h2>
+    <div class="price-row"><strong>① 公的支援・補助金・入札AI監視配信（B2Bサブスク）</strong><span>初期 0円 ／ 月額 15,000円（税別）</span></div>
+    <div class="price-row"><strong>② ライトプラン（インバウンドMEO整備＋スプレッドシート軽量自動化）</strong><span>初期 35,000円 ／ 月額保守 8,000円（税別）</span></div>
+    <div class="price-row"><strong>③ カスタムプラン（Playwright定期監視・複数システム連携）</strong><span>初期 60,000円 ／ 月額保守 15,000円（税別）</span></div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:12px;">
+      ※対象サイトの利用規約・robots.txt・個人情報保護法・特定電子メール法を遵守した範囲でのみ自動化を構築します。補助金の採択を保証するものではありません。
+    </p>
+  </section>
+
+  <div class="footer">
+    AI・業務自動化支援（京都拠点）｜お問い合わせ：xiaolinsi267@gmail.com
+  </div>
+</main>
+
+<script>
+function runDiag() {
+  const cat = document.getElementById("bizCat").value;
+  const hrs = Number(document.getElementById("hoursWeek").value) || 5;
+  const pains = Array.from(document.querySelectorAll(".pain:checked")).map(el => el.value);
+  const savedMonthly = Math.round(hrs * 4 * 0.6);
+
+  let subsidyHint = "・小規模事業者持続化補助金＜一般型＞（広報・Web改修等／2026年12月15日締切）\n・デジタル化・AI導入補助金2026（ITツール導入／2026年12月1日締切）";
+  if (cat === "宿泊" || cat === "飲食") {
+    subsidyHint += "\n・中小企業省力化投資補助金（自動チェックイン機・券売機等／随時受付）";
+  }
+
+  let plan = "① 公的情報AI監視配信（月額15,000円）";
+  if (pains.some(p => p.includes("口コミ") || p.includes("在庫"))) {
+    plan = "② ライトプラン（初期35,000円＋月額8,000円）";
+  }
+  if (pains.some(p => p.includes("巡回"))) {
+    plan = "③ カスタムプラン（初期60,000円＋月額15,000円）";
+  }
+
+  document.getElementById("diagSummary").innerHTML = `
+    <div><strong>想定削減時間：</strong>月約 <strong>${savedMonthly}時間</strong> の作業削減余地</div>
+    <div style="margin-top:6px;"><strong>推奨プラン：</strong>${plan}</div>
+  `;
+
+  document.getElementById("diagCopy").textContent =
+`【無料簡易診断メモ】
+・業種：${cat}
+・現在の課題：${pains.join(" / ") || "未選択"}
+・現在の週次作業時間：約${hrs}時間（月約${savedMonthly}時間の効率化余地）
+・推奨プラン：${plan}
+
+■ 参照可能な2026年公定支援制度（公式公募要領要確認）
+${subsidyHint}`;
+}
+
+function copyDiag() {
+  navigator.clipboard.writeText(document.getElementById("diagCopy").textContent);
+}
+runDiag();
+</script>
+</body>
+</html>
